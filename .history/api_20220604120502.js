@@ -10,7 +10,7 @@ export const getProfiles = `
 query Profiles (
     $id : ProfileId!
 ){
-    profiles(request: { profileIds: [$id], limit: 1 }) {
+    profiles(request: { profileIds: [$id], limit: 10 }) {
       items {
         id
         name

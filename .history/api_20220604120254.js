@@ -7,10 +7,8 @@ export const client = createClient({
 })
 
 export const getProfiles = `
-query Profiles (
-    $id : ProfileId!
-){
-    profiles(request: { profileIds: [$id], limit: 1 }) {
+query Profiles {
+    profiles(request: { profileIds: ["0x01"], limit: 10 }) {
       items {
         id
         name
