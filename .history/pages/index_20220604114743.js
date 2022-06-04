@@ -25,7 +25,7 @@ export default function Home() {
         profiles.map((profile, index) => (
           <Link href={`/profile/${profile.id}`} key={index}>
             <a>
-              <div style={{ padding: '100px'}}>
+              <div>
                 {
                   profile.picture ? (
                     <Image

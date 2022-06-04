@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { client, recommendProfile } from '../api';
@@ -25,21 +24,8 @@ export default function Home() {
         profiles.map((profile, index) => (
           <Link href={`/profile/${profile.id}`} key={index}>
             <a>
-              <div style={{ padding: '100px'}}>
-                {
-                  profile.picture ? (
-                    <Image
-                      src={profile.picture.original.url}
-                      width={200}
-                      height={200}
-                      alt={profile.name}
-                    />
-                  ) : (
-                    <div style={{ width: '200px', height: '200px', backgroundColor: 'black' }}/>
-                  )
-                }
-                <h1>{profile.handle}</h1>
-                <p>{profile.bio}</p>
+              <div>
+                <h1>{profile.name}</h1>
               </div>
             </a>
           </Link>
