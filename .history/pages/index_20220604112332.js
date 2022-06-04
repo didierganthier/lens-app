@@ -8,17 +8,13 @@ export default function Home() {
   }, []);
 
   async function fetchProfiles (){
-    try {
-      const response = await client.query(recommendProfile).toPromise();
-      console.log({ response });
-    } catch (error) {
-      console.log({ error });
-    }
+    const { data } = await client.query({ query: recommendProfile });
+    console.log(data);
   }
 
   return (
     <div>
-      <h1>Hello</h1>
+      
     </div>
   )
 }

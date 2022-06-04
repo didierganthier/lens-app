@@ -11,14 +11,12 @@ export default function Home() {
     try {
       const response = await client.query(recommendProfile).toPromise();
       console.log({ response });
-    } catch (error) {
-      console.log({ error });
     }
   }
 
   return (
     <div>
-      <h1>Hello</h1>
+      
     </div>
   )
 }
