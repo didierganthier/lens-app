@@ -10,8 +10,8 @@ export const getPublications = `
 query Publications ($id: ProfileId!) {
   publications(request: {
     profileId: $id,
-    publicationTypes: [POST],
-    limit: 20,
+    publicationTypes: [POST, COMMENT, MIRROR],
+    limit: 10
   }) {
     items {
       __typename 
