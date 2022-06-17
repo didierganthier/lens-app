@@ -50,8 +50,10 @@ export default function Profile() {
       <div>
         {
           pubs.map((pub, index) => (
-            <div key={index} style={{ padding: '20px', borderTop: '1px solid #ededed' }}>
-              {pub.metadata.content}
+            <div key={index}>
+              <h4>{pub.title}</h4>
+              <p>{pub.description}</p>
+              <p>{pub.publishedAt}</p>
             </div>
           ))
         }
