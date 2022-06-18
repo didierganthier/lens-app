@@ -45,11 +45,8 @@ export default function Profile() {
     const contract = new ethers.Contract(address, ABI, signer);
 
     try {
-      const tx = await contract.follow(
-        [id], [0x0]
-      );
-      await tx.wait();
-      console.log("followed user successfully", tx.hash);
+      const tx = await contract.follow(id);
+      console.log({ tx });
     } catch (error) {
       console.log({ error });
     }

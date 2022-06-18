@@ -2,10 +2,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { client, getProfiles, getPublications } from "../../api";
-import ABI from "../../abi.json";
-import { ethers } from "ethers";
-
-const address = "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d";
 
 export default function Profile() {
   const [profile, setProfile] = useState([]);
@@ -31,34 +27,9 @@ export default function Profile() {
     }
   }
 
-  async function connect() {
-    const accounts = await window.ethereum.request({ 
-      method: "eth_requestAccounts" 
-    });
-    console.log({ accounts });
-  }
-
-  async function followUser () {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-
-    const contract = new ethers.Contract(address, ABI, signer);
-
-    try {
-      const tx = await contract.follow(
-        [id], [0x0]
-      );
-      await tx.wait();
-      console.log("followed user successfully", tx.hash);
-    } catch (error) {
-      console.log({ error });
-    }
-  }
-
   return (
     <div>
       <div>
-        <button onClick={connect}>Connect</button>
         {
           profile.picture ? (
             <Image

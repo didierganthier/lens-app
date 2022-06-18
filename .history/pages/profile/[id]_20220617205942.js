@@ -58,7 +58,7 @@ export default function Profile() {
   return (
     <div>
       <div>
-        <button onClick={connect}>Connect</button>
+        <button onClick={()=> connect()}>Connect</button>
         {
           profile.picture ? (
             <Image

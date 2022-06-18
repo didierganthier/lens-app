@@ -48,8 +48,7 @@ export default function Profile() {
       const tx = await contract.follow(
         [id], [0x0]
       );
-      await tx.wait();
-      console.log("followed user successfully", tx.hash);
+      console.log({ tx });
     } catch (error) {
       console.log({ error });
     }
