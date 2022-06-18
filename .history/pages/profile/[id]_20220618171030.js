@@ -77,7 +77,6 @@ export default function Profile() {
         <p>{profile.bio}</p>
         <p>Followers: {profile.stats?.totalFollowers}</p>
         <p>Following: {profile.stats?.totalFollowing}</p>
-        <button onClick={followUser}>Follow</button>
       </div>
       <div>
         {
