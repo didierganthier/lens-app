@@ -21,7 +21,8 @@ export default function Home() {
   }
 
   return (
-    <div className=''>
+    <div>
+      <Header/>
       {
         profiles.map((profile, index) => (
           <Link href={`/profile/${profile.id}`} key={index}>
@@ -39,7 +40,7 @@ export default function Home() {
                     <div style={{ width: '200px', height: '200px', backgroundColor: 'black' }}/>
                   )
                 }
-                <h1 className=''>{profile.handle}</h1>
+                <h1 className='text-green-500'>{profile.handle}</h1>
                 <p>{profile.bio}</p>
               </div>
             </a>

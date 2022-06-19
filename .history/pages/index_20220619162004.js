@@ -21,7 +21,7 @@ export default function Home() {
   }
 
   return (
-    <div className=''>
+    <div className='px-36'>
       {
         profiles.map((profile, index) => (
           <Link href={`/profile/${profile.id}`} key={index}>
