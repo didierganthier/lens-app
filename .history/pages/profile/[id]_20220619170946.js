@@ -9,6 +9,7 @@ const address = "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d";
 
 export default function Profile() {
   const [profile, setProfile] = useState([]);
+  const [timeline, setTimeline] = useState([]);
   const [pubs, setPubs] = useState([]);
   const router = useRouter();
   const { id } = router.query;
@@ -25,7 +26,11 @@ export default function Profile() {
 
       const publicationsData = await client.query(getPublications, { id }).toPromise();
       console.log({ publicationsData });
-      setPubs(publicationsData.data.publications.items);
+      // setPubs(publicationsData.data.publications.items);
+
+      const timelineData = await client.query(getTimeline, { id }).toPromise();
+      console.log({ timelineData });
+      setTimeline(timelineData.data.timeline.items);
     } catch (error) {
       console.log({ error });
     }
@@ -81,9 +86,9 @@ export default function Profile() {
       </div>
       <div>
         {
-          pubs.map((pub, index) => (
+          timeline.map((time, index) => (
             <div key={index} style={{ padding: '20px', borderTop: '1px solid #ededed' }}>
-              {pub.metadata.content}
+              {time.metadata.content}
             </div>
           ))
         }

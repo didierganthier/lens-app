@@ -26,10 +26,10 @@ export default function Home() {
           <Link href={`/profile/${profile.id}`} key={index}>
             <a>
               <div>
-                {
+                {/* {
                   profile.picture  ? (
                     <Image
-                      src={profile.picture.original?.url ?? '/black.png'}
+                      src={profile.picture?.original?.url}
                       width={200}
                       height={200}
                       alt={profile.name}
@@ -37,8 +37,7 @@ export default function Home() {
                   ) : (
                     <div style={{ width: '200px', height: '200px', backgroundColor: 'black' }}/>
                   )
-                }
-                <p>{profile.picture?.original?.url}</p>
+                } */}
                 <h1>{profile.handle}</h1>
                 <p>{profile.bio}</p>
               </div>

@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
         <title>Lens Social Media</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      {/* <Navbar /> */}
+      <Navbar />
       <Component {...pageProps} />
     </div>
   )

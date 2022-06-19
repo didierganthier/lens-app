@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { client, getProfiles, getPublications, getTimeline } from "../../api";
+import { client, getProfiles, getPublications } from "../../api";
 import ABI from "../../abi.json";
 import { ethers } from "ethers";
 

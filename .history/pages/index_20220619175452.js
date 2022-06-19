@@ -29,7 +29,7 @@ export default function Home() {
                 {
                   profile.picture  ? (
                     <Image
-                      src={profile.picture.original?.url ?? '/black.png'}
+                      src="https://ipfs.infura.io/ipfs/QmZ2Y6NrwvCst88S6V6eQVocUqkL9Zbmw6MqpNWZwYt4op"
                       width={200}
                       height={200}
                       alt={profile.name}
@@ -38,7 +38,6 @@ export default function Home() {
                     <div style={{ width: '200px', height: '200px', backgroundColor: 'black' }}/>
                   )
                 }
-                <p>{profile.picture?.original?.url}</p>
                 <h1>{profile.handle}</h1>
                 <p>{profile.bio}</p>
               </div>

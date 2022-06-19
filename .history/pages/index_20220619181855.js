@@ -29,7 +29,7 @@ export default function Home() {
                 {
                   profile.picture  ? (
                     <Image
-                      src={profile.picture.original?.url ?? '/black.png'}
+                      src={profile.picture.original?.url ?? 'black.png'}
                       width={200}
                       height={200}
                       alt={profile.name}

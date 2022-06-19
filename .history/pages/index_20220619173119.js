@@ -20,26 +20,28 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className=''>
       {
         profiles.map((profile, index) => (
           <Link href={`/profile/${profile.id}`} key={index}>
             <a>
               <div>
                 {
-                  profile.picture  ? (
-                    <Image
-                      src={profile.picture.original?.url ?? '/black.png'}
-                      width={200}
-                      height={200}
-                      alt={profile.name}
-                    />
+                  profile.picture ? (
+                    <div className=''>
+                      <Image
+                        src={profile.picture.original.url}
+                        width={200}
+                        height={200}
+                        alt={profile.name}
+                        className='rounded-md'
+                      />
+                    </div>
                   ) : (
-                    <div style={{ width: '200px', height: '200px', backgroundColor: 'black' }}/>
+                    <div style={{ width: '200px', height: '200px', backgroundColor: 'black' }} />
                   )
                 }
-                <p>{profile.picture?.original?.url}</p>
-                <h1>{profile.handle}</h1>
+                <h1 className=''>{profile.handle}</h1>
                 <p>{profile.bio}</p>
               </div>
             </a>

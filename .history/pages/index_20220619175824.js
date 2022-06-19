@@ -27,9 +27,9 @@ export default function Home() {
             <a>
               <div>
                 {
-                  profile.picture  ? (
+                  profile.picture.original  ? (
                     <Image
-                      src={profile.picture.original?.url ?? '/black.png'}
+                      src={profile.picture.original.url}
                       width={200}
                       height={200}
                       alt={profile.name}
