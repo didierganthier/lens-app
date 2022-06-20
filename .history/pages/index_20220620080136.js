@@ -34,12 +34,24 @@ export default function Home() {
   return (
     <div className='px-[600px] py-20'>
       {
-        publications.map((publication, index) => (
-          <Link href={`/posts/${publication.id}`} key={index}>
+        profiles.map((profile, index) => (
+          <Link href={`/profile/${profile.id}`} key={index}>
             <a>
               <div className='p-5 rounded-md shadow-md my-20 border-gray-300 border'>
-                <h1 className='font-bold text-2xl'>{publication.metadata.name}</h1>
-                <p>{publication.metadata.content}</p>
+                {
+                  profile.picture  ? (
+                    <Image
+                      src={profile.picture.original?.url ?? '/black.png'}
+                      width={400}
+                      height={400}
+                      alt={profile.name}
+                    />
+                  ) : (
+                    <div style={{ width: '200px', height: '200px', backgroundColor: 'black' }}/>
+                  )
+                }
+                <h1 className='font-bold text-2xl'>{profile.handle}</h1>
+                <p>{profile.bio}</p>
               </div>
             </a>
           </Link>

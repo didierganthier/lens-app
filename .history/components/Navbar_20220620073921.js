@@ -4,7 +4,6 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import Dropdown from './Dropdown'
 import Link from 'next/link'
 import { client, createProfile } from '../api';
-import ABI from "../abi.json";
 import { ethers } from "ethers";
 
 const address = "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d";
@@ -12,6 +11,15 @@ const address = "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d";
 export default function Navbar() {
 
     const [profile, setProfile] = useState();
+
+    async function createProfile() {
+        try {
+            const response = await client.query(createProfile,).toPromise();
+            console.log({ response });
+        } catch (error) {
+            console.log({ error });
+        }
+    }
 
     async function connect() {
         const accounts = await window.ethereum.request({
@@ -27,11 +35,11 @@ export default function Navbar() {
         const contract = new ethers.Contract(address, ABI, signer);
     
         try {
-          const tx = await contract.createProfile(
-            "testhadle",
+          const tx = await contract.follow(
+            [id], [0x0]
           );
           await tx.wait();
-          console.log("created profile successfully", tx.hash);
+          console.log("followed user successfully", tx.hash);
         } catch (error) {
           console.log({ error });
         }

@@ -29,7 +29,7 @@ export const getTopPublications = `
 query ExplorePublications {
   explorePublications(request: {
     sortCriteria: TOP_COMMENTED,
-    publicationTypes: [POST],
+    publicationTypes: [POST, VIDEO, IMAGE, GIF],
     limit: 20
   }) {
     items {

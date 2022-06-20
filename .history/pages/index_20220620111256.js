@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { client, recommendProfile, getTopPublications } from '../api';
+import TwitterFeed from '../components/TwitterFeed';
 
 export default function Home() {
   const [profiles, setProfiles] = useState([]);
@@ -33,18 +34,7 @@ export default function Home() {
 
   return (
     <div className='px-[600px] py-20'>
-      {
-        publications.map((publication, index) => (
-          <Link href={`/posts/${publication.id}`} key={index}>
-            <a>
-              <div className='p-5 rounded-md shadow-md my-20 border-gray-300 border'>
-                <h1 className='font-bold text-2xl'>{publication.metadata.name}</h1>
-                <p>{publication.metadata.content}</p>
-              </div>
-            </a>
-          </Link>
-        ))
-      }
+      <TwitterFeed/>
     </div>
   )
 }

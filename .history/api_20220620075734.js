@@ -29,8 +29,8 @@ export const getTopPublications = `
 query ExplorePublications {
   explorePublications(request: {
     sortCriteria: TOP_COMMENTED,
-    publicationTypes: [POST],
-    limit: 20
+    publicationTypes: [POST, COMMENT, MIRROR],
+    limit: 10
   }) {
     items {
       __typename 

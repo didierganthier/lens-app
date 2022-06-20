@@ -4,7 +4,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import Dropdown from './Dropdown'
 import Link from 'next/link'
 import { client, createProfile } from '../api';
-import ABI from "../abi.json";
+import ABI from "../../abi.json";
 import { ethers } from "ethers";
 
 const address = "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d";

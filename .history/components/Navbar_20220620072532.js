@@ -4,41 +4,30 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import Dropdown from './Dropdown'
 import Link from 'next/link'
 import { client, createProfile } from '../api';
-import ABI from "../abi.json";
 import { ethers } from "ethers";
-
-const address = "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d";
 
 export default function Navbar() {
 
     const [profile, setProfile] = useState();
 
-    async function connect() {
-        const accounts = await window.ethereum.request({
-            method: "eth_requestAccounts"
-        });
-        console.log({ accounts });
-    }
-
-    async function createProfile () {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-    
-        const contract = new ethers.Contract(address, ABI, signer);
-    
+    async function createProfile() {
         try {
-          const tx = await contract.createProfile(
-            "testhadle",
-          );
-          await tx.wait();
-          console.log("created profile successfully", tx.hash);
+          const response = await client.query(createProfile, ).toPromise();
+          console.log({ response });
         } catch (error) {
           console.log({ error });
         }
       }
 
+      async function connect() {
+        const accounts = await window.ethereum.request({ 
+          method: "eth_requestAccounts" 
+        });
+        console.log({ accounts });
+      }
+
     return (
-        <nav className='h-16 w-full shadow-md flex bg-white justify-between fixed z-10 md:px-[450px]'>
+        <nav className='h-16 w-full shadow-md flex bg-white justify-between fixed z-10 px-[550px]'>
             <div className='flex h-full'>
                 <Link href="/">
                     <a className='rounded-full'>
@@ -53,7 +42,7 @@ export default function Navbar() {
                 <div className='py-3 px-2' onClick={connect}>
                     <Dropdown title='Connect' chevron={false} />
                 </div>
-
+            
             </div>
         </nav>
     )
